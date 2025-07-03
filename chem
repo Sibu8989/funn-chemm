@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChemXplore - Fun Chemistry Answers</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>⚗️ ChemXplore</h1>
+    <p>Explore Chemistry in a Fun & Funky Way!</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <input type="text" id="searchInput" placeholder="Ask anything about chemistry..."/>
+      <button onclick="searchAnswer()">🔍 Search</button>
+    </section>
+
+    <section id="answerSection">
+      <h2>Answer:</h2>
+      <p id="answerText">Type a question to see the magic!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ for curious minds</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+* {
+  box-sizing: border-box;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: #2d2d2d;
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #ff6f61;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.search-section {
+  margin: 20px auto;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  border-radius: 10px;
+  border: 2px solid #ff6f61;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #6a0572;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #9a0f98;
+}
+
+#answerSection {
+  margin-top: 30px;
+  background-color: #fef3c7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffa500;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #444;
+}
+const fakeAnswers = {
+  "what is water": "Water is a compound made up of two hydrogen atoms and one oxygen atom – H₂O. It's essential for all known forms of life!",
+  "what is acid": "Acids are substances that donate protons (H⁺ ions) in aqueous solutions. They have a pH less than 7.",
+  "what is base": "Bases are substances that accept protons or donate hydroxide ions (OH⁻). They usually have a pH above 7.",
+  "what is atom": "An atom is the smallest unit of matter that retains the identity of a chemical element. It consists of a nucleus (protons + neutrons) and electrons."
+};
+
+function searchAnswer() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const answerText = document.getElementById('answerText');
+
+  if (fakeAnswers[input]) {
+    answerText.textContent = fakeAnswers[input];
+  } else {
+    answerText.textContent = "Oops! I don't know that yet, but I'm learning every day!";
+  }
+}
